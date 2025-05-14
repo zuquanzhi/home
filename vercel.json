@@ -1,0 +1,5 @@
+{
+  "build": {
+    "command": "corepack enable && corepack prepare pnpm@7 --activate && pnpm install && pnpm run build"
+  }
+}
