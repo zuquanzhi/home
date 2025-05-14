@@ -1,5 +1,0 @@
-{
-  "outputDirectory": "dist",
-  "installCommand": "pnpm config set registry https://registry.npmmirror.com && pnpm install",
-  "buildCommand": "pnpm build"
-}
