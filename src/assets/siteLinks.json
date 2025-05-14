@@ -5,9 +5,9 @@
     "link": "https://blog.zuquanzhi.top/"
   },
   {
-    "icon": "Cloud",
-    "name": "网盘",
-    "link": "https://pan.imsyy.top/"
+    "icon": "Github",
+    "name": "GitHub",
+    "link": "https://github.com/zuquanzhi"
   },
   {
     "icon": "CompactDisc",
@@ -19,5 +19,4 @@
     "name": "起始页",
     "link": "https://nav.imsyy.top/"
   }
-
 ]
