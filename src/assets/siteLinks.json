@@ -8,5 +8,10 @@
     "icon": "Compass",
     "name": "起始页",
     "link": "https://search.zuquanzhi.top/"
+  },
+  {
+    "icon": "Cloud",
+    "name": "云盘",
+    "link": "https://cloud.zuquanzhi.top/"
   }
 ]
