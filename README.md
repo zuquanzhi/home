@@ -129,6 +129,7 @@ const siteIcon = {
   Book,
   Fire,
   LaptopCode,
+  BookOpen
 };
 ```
 
