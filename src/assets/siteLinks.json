@@ -13,5 +13,10 @@
     "icon": "Cloud",
     "name": "云盘",
     "link": "http://cloud.zuquanzhi.top/"
+  },
+  {
+    "icon": "Note",
+    "name": "笔记",
+    "link": "http://note.zuquanzhi.top/"
   }
 ]
