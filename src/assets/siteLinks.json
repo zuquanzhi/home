@@ -18,5 +18,10 @@
     "icon": "BookOpen",
     "name": "笔记",
     "link": "http://note.zuquanzhi.top/"
+  },
+  {
+    "icon": "Book",
+    "name": "书架",
+    "link": "http://book.zuquanzhi.top/"
   }
 ]
