@@ -18,5 +18,16 @@
     "icon": "BookOpen",
     "name": "笔记",
     "link": "http://note.zuquanzhi.top/"
+  },
+  {
+    "icon": "LaptopCode",
+    "name": "仪表盘",
+    "link": "http://board.zuquanzhi.top/"
+  },
+  {
+    "icon": "Book",
+    "name": "书架",
+    "link": "http://book.zuquanzhi.top/"
   }
+  
 ]
