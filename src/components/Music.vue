@@ -118,18 +118,25 @@ const changeMusicIndex = (type) => {
   playerRef.value.changeSong(type);
 };
 
+// 空格键事件处理
+const keydownHandler = (e) => {
+  if (!store.musicIsOk) {
+    return;
+  }
+  if (e.code == "Space") {
+    changePlayState();
+  }
+};
+
 onMounted(() => {
   // 空格键事件
-  window.addEventListener("keydown", (e) => {
-    if (!store.musicIsOk) {
-      return;
-    }
-    if (e.code == "Space") {
-      changePlayState();
-    }
-  });
+  window.addEventListener("keydown", keydownHandler);
   // 挂载方法至 window
   window.$openList = openMusicList;
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", keydownHandler);
 });
 
 // 监听音量变化

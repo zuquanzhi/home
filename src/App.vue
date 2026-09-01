@@ -76,30 +76,36 @@ watch(
   },
 );
 
+// 鼠标中键事件处理
+const mouseHandler = (event) => {
+  if (event.button == 1) {
+    store.backgroundShow = !store.backgroundShow;
+    ElMessage({
+      message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
+      grouping: true,
+    });
+  }
+};
+
+// 屏蔽右键
+const contextMenuHandler = () => {
+  ElMessage({
+    message: "为了浏览体验，本站禁用右键",
+    grouping: true,
+    duration: 2000,
+  });
+  return false;
+};
+
 onMounted(() => {
   // 自定义鼠标
   cursorInit();
 
   // 屏蔽右键
-  document.oncontextmenu = () => {
-    ElMessage({
-      message: "为了浏览体验，本站禁用右键",
-      grouping: true,
-      duration: 2000,
-    });
-    return false;
-  };
+  document.addEventListener("contextmenu", contextMenuHandler);
 
   // 鼠标中键事件
-  window.addEventListener("mousedown", (event) => {
-    if (event.button == 1) {
-      store.backgroundShow = !store.backgroundShow;
-      ElMessage({
-        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
-        grouping: true,
-      });
-    }
-  });
+  window.addEventListener("mousedown", mouseHandler);
 
   // 监听当前页面宽度
   getWidth();
@@ -112,7 +118,7 @@ onMounted(() => {
   const title1 = "無名の主页";
   const title2 = `
  _____ __  __  _______     ____     __
-|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
+|_   _|  \/  |/ ____\\ \\   / /\\ \\   / /
   | | | \\  / | (___  \\ \\_/ /  \\ \\_/ /
   | | | |\\/| |\\___ \\  \\   /    \\   /
  _| |_| |  | |____) |  | |      | |
@@ -123,6 +129,8 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
+  window.removeEventListener("mousedown", mouseHandler);
+  document.removeEventListener("contextmenu", contextMenuHandler);
 });
 </script>
 

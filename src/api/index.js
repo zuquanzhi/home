@@ -12,6 +12,10 @@ export const getPlayerList = async (server, type, id) => {
   );
   const data = await res.json();
 
+  if (!Array.isArray(data) || data.length === 0) {
+    throw new Error("歌单为空或格式错误");
+  }
+
   if (data[0].url.startsWith("@")) {
     // eslint-disable-next-line no-unused-vars
     const [handle, jsonpCallback, jsonpCallbackFunction, url] = data[0].url.split("@").slice(1);

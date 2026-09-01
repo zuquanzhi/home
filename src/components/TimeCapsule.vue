@@ -42,7 +42,9 @@ onMounted(() => {
   timeInterval.value = setInterval(() => {
     timeData.value = getTimeCapsule();
     if (startDate.value) startDateText.value = siteDateStatistics(new Date(startDate.value));
-  }, 1000);
+  }, 60 * 1000);
+  // 立即执行一次
+  if (startDate.value) startDateText.value = siteDateStatistics(new Date(startDate.value));
 });
 
 onBeforeUnmount(() => {

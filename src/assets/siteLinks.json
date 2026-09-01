@@ -12,12 +12,12 @@
   {
     "icon": "Cloud",
     "name": "云盘",
-    "link": "http://cloud.zuquanzhi.top/"
+    "link": "https://cloud.zuquanzhi.top/"
   },
   {
     "icon": "LaptopCode",
     "name": "仪表盘",
-    "link": "http://board.zuquanzhi.top/"
+    "link": "https://board.zuquanzhi.top/"
   }
 
 ]

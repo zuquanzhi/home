@@ -5,9 +5,9 @@
     <span>{{ weatherData.weather.temperature }}℃</span>
     <span class="sm-hidden">
       &nbsp;{{
-        weatherData.weather.winddirection?.endsWith("风")
+        weatherData.weather.winddirection && weatherData.weather.winddirection.endsWith("风")
           ? weatherData.weather.winddirection
-          : weatherData.weather.winddirection + "风"
+          : (weatherData.weather.winddirection || "") + "风"
       }}&nbsp;
     </span>
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
@@ -110,5 +110,12 @@ const onError = (message) => {
 onMounted(() => {
   // 调用获取天气
   getWeatherData();
+  // 每30分钟刷新天气
+  const weatherTimer = setInterval(() => {
+    getWeatherData();
+  }, 30 * 60 * 1000);
+  onBeforeUnmount(() => {
+    clearInterval(weatherTimer);
+  });
 });
 </script>

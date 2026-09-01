@@ -119,15 +119,18 @@ const onPlay = () => {
   // 播放状态
   store.setPlayerState(player.value.audioRef.paused);
   // 储存播放器信息
-  store.setPlayerData(playList.value[playIndex.value].name, playList.value[playIndex.value].artist);
-  ElMessage({
-    message: store.getPlayerData.name + " - " + store.getPlayerData.artist,
-    grouping: true,
-    icon: h(MusicOne, {
-      theme: "filled",
-      fill: "#efefef",
-    }),
-  });
+  const currentSong = playList.value[playIndex.value];
+  if (currentSong) {
+    store.setPlayerData(currentSong.name, currentSong.artist);
+    ElMessage({
+      message: store.getPlayerData.name + " - " + store.getPlayerData.artist,
+      grouping: true,
+      icon: h(MusicOne, {
+        theme: "filled",
+        fill: "#efefef",
+      }),
+    });
+  }
 };
 
 // 暂停
@@ -191,9 +194,7 @@ const loadMusicError = () => {
       duration: 2000,
     }),
   });
-  console.error(
-    "播放歌曲: " + player.value.aplayer.audio[player.value.aplayer.index].name + " 出现错误",
-  );
+  console.error("播放歌曲出现错误");
 };
 
 // 暴露子组件方法
